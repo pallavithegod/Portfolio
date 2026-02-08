@@ -16,8 +16,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 relative z-10">
-      <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl px-6">
+    <section id="hero" className="min-h-screen flex justify-center pt-32 pb-20 relative z-10">
+      <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full max-w-6xl px-6">
         
         {/* Left Content */}
         <div className="flex-1 flex flex-col justify-center items-start md:pr-12">

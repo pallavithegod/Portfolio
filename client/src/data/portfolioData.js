@@ -66,15 +66,10 @@ export const projects = [
     tagline: 'AI + Wellness App',
     tech: ['React', 'Node.js', 'Dialogflow', 'Gemini'],
     description: 'A mental wellness tool combining AI check-ins, productivity, and inclusive community.',
-    star: {
-      situation: 'Need for an accessible mental wellness tool.',
-      task: 'Build a full-stack mental wellness app with chat and tools.',
-      action: 'AI chatbot via Dialogflow/Gemini. Added Pomodoro timer and mood journaling.',
-      result: 'Automated daily mental wellness tips, saving manual content effort.'
-    },
+    isFoundational: true,
+    isSimple: true,
     link: '#',
-    github: '#',
-    isFoundational: true
+    github: '#'
   }
 ];
 

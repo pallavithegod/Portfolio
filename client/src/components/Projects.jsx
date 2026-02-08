@@ -143,22 +143,22 @@ const Projects = () => {
             {projects.slice(2).map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index + 2} />
             ))}
-            
-            {/* External Link at the end of the second column */}
-            <div className="mt-8 text-center md:text-left p-4">
-               <a 
-                 href="https://github.com/pallavijain" 
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="inline-flex items-center text-xl text-secondary hover:underline font-mono group transition-transform"
-               >
-                 To explore more - visit my github! 
-                 <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">
-                   <ArrowRight size={24} />
-                 </span>
-               </a>
-            </div>
           </div>
+        </div>
+
+        {/* Explore More - Centered below columns */}
+        <div className="mt-12 text-center">
+            <a 
+              href="https://github.com/pallavijain" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-xl text-secondary hover:text-white transition-colors font-mono group"
+            >
+              To explore more - visit my github! 
+              <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">
+                <ArrowRight size={24} />
+              </span>
+            </a>
         </div>
       </div>
     </section>

@@ -35,26 +35,46 @@ const Contact = () => {
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
 
-            <div className="space-y-4">
-                <div className="flex items-center text-slate">
-                    <Mail className="text-secondary mr-4" size={20} />
-                    <a href="mailto:jainpallavi.delhi@gmail.com" className="hover:text-secondary transition-colors">jainpallavi.delhi@gmail.com</a>
+            <div className="space-y-6">
+                <a href="mailto:jainpallavi.delhi@gmail.com" className="flex items-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-secondary/20 transition-colors">
+                        <Mail className="text-secondary" size={24} />
+                    </div>
+                    <div>
+                        <p className="text-sm text-slate mb-1">Email</p>
+                        <p className="text-white font-mono group-hover:text-secondary transition-colors">jainpallavi.delhi@gmail.com</p>
+                    </div>
+                </a>
+                
+                <div className="flex items-center p-4 bg-tertiary/30 rounded-lg border border-transparent">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+                        <Phone className="text-secondary" size={24} />
+                    </div>
+                    <div>
+                        <p className="text-sm text-slate mb-1">Phone</p>
+                        <p className="text-white font-mono">8076717873</p>
+                    </div>
                 </div>
-                <div className="flex items-center text-slate">
-                    <Phone className="text-secondary mr-4" size={20} />
-                    <span>8076717873</span>
+
+                <div className="flex items-center p-4 bg-tertiary/30 rounded-lg border border-transparent">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+                        <MapPin className="text-secondary" size={24} />
+                    </div>
+                    <div>
+                        <p className="text-sm text-slate mb-1">Location</p>
+                        <p className="text-white">Delhi, India</p>
+                    </div>
                 </div>
-                <div className="flex items-center text-slate">
-                    <MapPin className="text-secondary mr-4" size={20} />
-                    <span>Delhi, India</span>
-                </div>
-                 <div className="flex items-center text-slate">
-                    <Github className="text-secondary mr-4" size={20} />
-                    <a href="https://github.com/pallavithegod" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">pallavithegod</a>
-                </div>
-                 <div className="flex items-center text-slate">
-                    <Linkedin className="text-secondary mr-4" size={20} />
-                    <a href="https://linkedin.com/in/pallavii-" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">pallavii-</a>
+
+                 <div className="flex gap-4 pt-2">
+                    <a href="https://github.com/pallavithegod" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
+                         <Github className="text-slate group-hover:text-secondary transition-colors" size={24} />
+                         <span className="ml-2 text-slate group-hover:text-white transition-colors">GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/pallavii-" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
+                        <Linkedin className="text-slate group-hover:text-secondary transition-colors" size={24} />
+                         <span className="ml-2 text-slate group-hover:text-white transition-colors">LinkedIn</span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -2,8 +2,26 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { skills } from '../data/portfolioData';
+import ChromaGrid from './React bits/chroma';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Gradient Palettes for Skills
+const gradients = [
+    'linear-gradient(145deg, #64ffda, #000)', // Teal
+    'linear-gradient(145deg, #bd34fe, #000)', // Purple
+    'linear-gradient(145deg, #ff8c00, #000)', // Orange
+    'linear-gradient(145deg, #00bfff, #000)', // Blue
+];
+
+const chromaItems = skills.map((category, index) => ({
+    icon: category.icon, // Component
+    title: category.category,
+    subtitle: category.items.join(', '),
+    borderColor: '#64ffda',
+    gradient: gradients[index % gradients.length],
+    url: null
+}));
 
 const Skills = () => {
   const sectionRef = useRef(null);
@@ -35,30 +53,15 @@ const Skills = () => {
         <span className="text-secondary font-mono text-2xl mr-4">02.</span> Technical Skills
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((category, index) => {
-          const Icon = category.icon;
-          return (
-            <div key={index} className="skill-card group relative p-6 bg-tertiary/50 backdrop-blur-sm rounded-xl border border-white/5 hover:border-secondary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(100,255,218,0.15)] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              
-              <div className="relative z-10">
-                  <div className="text-secondary mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
-                      <Icon size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">{category.category}</h3>
-                  <ul className="space-y-2">
-                    {category.items.map((item, i) => (
-                      <li key={i} className="text-slate font-mono text-sm flex items-center">
-                        <span className="w-1.5 h-1.5 bg-secondary rounded-full mr-2 group-hover:bg-white transition-colors"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-              </div>
-            </div>
-          );
-        })}
+      <div className="h-[600px] w-full relative">
+        <ChromaGrid 
+          items={chromaItems}
+          radius={300}
+          damping={0.45}
+          fadeOut={0.6}
+          ease="power3.out"
+          className="bg-transparent"
+        />
       </div>
     </section>
   );

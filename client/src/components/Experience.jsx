@@ -1,5 +1,28 @@
 import React from 'react';
 import { education } from '../data/portfolioData';
+import Carousel from './React bits/carousal';
+import { Award, Users, Mic } from 'lucide-react';
+
+const achievementsData = [
+    {
+        id: 1,
+        title: 'Hackathons',
+        description: 'Finalist in 5+ hackathons with innovative ideas. Built working prototypes under tight deadlines.',
+        icon: <Award className="h-[16px] w-[16px] text-secondary" />
+    },
+    {
+        id: 2,
+        title: 'Tech Society',
+        description: 'Junior Council Member at ANVESHAN. Co-organized coding workshops for 100+ students.',
+        icon: <Users className="h-[16px] w-[16px] text-secondary" />
+    },
+    {
+        id: 3,
+        title: 'Soft Skills',
+        description: 'Communication, Collaboration, Leadership, Time Management, Creativity.',
+        icon: <Mic className="h-[16px] w-[16px] text-secondary" />
+    }
+];
 
 const Experience = () => {
   return (
@@ -14,13 +37,16 @@ const Experience = () => {
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center"><span className="w-8 h-0.5 bg-secondary mr-3"></span>Academic Snapshot</h3>
           <div className="space-y-6">
             {education.map((edu, index) => (
-              <div key={index} className="border-l-2 border-slate/30 pl-6 py-2 relative hover:border-secondary transition-colors duration-300 group">
-                <span className="absolute -left-[5px] top-6 w-2.5 h-2.5 bg-primary border-2 border-slate/30 group-hover:border-secondary group-hover:bg-secondary transition-colors duration-300 rounded-full"></span>
-                <h4 className="text-white font-bold group-hover:text-secondary transition-colors">{edu.institution}</h4>
-                <p className="text-slate text-sm mb-1">{edu.degree}</p>
-                 {edu.year && <p className="text-lightSlate font-mono text-xs mb-2">{edu.year}</p>}
-                <p className="text-secondary font-bold">{edu.score}</p>
-                {edu.location && <p className="text-slate text-xs">{edu.location}</p>}
+              <div key={index} className="group relative pl-8 py-4 border-l-2 border-slate/20 hover:border-secondary transition-colors duration-300">
+                <span className="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-primary border-2 border-slate/20 group-hover:border-secondary group-hover:bg-secondary transition-all duration-300"></span>
+                <div className="bg-tertiary/40 p-4 rounded-r-lg group-hover:bg-tertiary/60 transition-all">
+                    <h4 className="text-white font-bold text-lg group-hover:text-secondary transition-colors">{edu.institution}</h4>
+                    <p className="text-slate mb-1">{edu.degree}</p>
+                    {edu.year && <p className="text-lightSlate font-mono text-sm mb-2">{edu.year}</p>}
+                    <div className="inline-block bg-secondary/10 px-3 py-1 rounded text-secondary text-sm font-semibold border border-secondary/20">
+                        {edu.score}
+                    </div>
+                </div>
               </div>
             ))}
           </div>
@@ -30,34 +56,16 @@ const Experience = () => {
         <div>
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center"><span className="w-8 h-0.5 bg-secondary mr-3"></span>Achievements & Leadership</h3>
           
-          <div className="group bg-tertiary/50 p-6 rounded-xl border border-white/5 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg mb-6 relative overflow-hidden">
-             <div className="absolute inset-0 bg-secondary/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-             <div className="relative z-10">
-                <h4 className="text-secondary font-bold mb-2 text-lg">Hackathons</h4>
-                <ul className="list-disc list-inside text-slate text-sm space-y-2">
-                  <li>Finalist in 5+ hackathons with innovative ideas.</li>
-                  <li>Built working prototypes under tight deadlines.</li>
-                </ul>
-             </div>
-          </div>
-
-          <div className="group bg-tertiary/50 p-6 rounded-xl border border-white/5 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg mb-6 relative overflow-hidden">
-            <div className="absolute inset-0 bg-secondary/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-            <div className="relative z-10">
-                <h4 className="text-secondary font-bold mb-2 text-lg">Tech Society (ANVESHAN)</h4>
-                <ul className="list-disc list-inside text-slate text-sm space-y-2">
-                  <li>Junior Council Member.</li>
-                  <li>Co-organized coding workshops for 100+ students.</li>
-                </ul>
-            </div>
-          </div>
-
-           <div className="group bg-tertiary/50 p-6 rounded-xl border border-white/5 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-secondary/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-            <div className="relative z-10">
-                <h4 className="text-secondary font-bold mb-2 text-lg">Soft Skills</h4>
-                <p className="text-slate text-sm">Communication, Collaboration, Leadership, Time Management, Creativity.</p>
-            </div>
+          <div className="h-[400px] w-full flex items-center justify-center">
+            <Carousel 
+              items={achievementsData}
+              baseWidth={300}
+              autoplay={true}
+              autoplayDelay={3000}
+              pauseOnHover={true}
+              loop={true}
+              round={false}
+            />
           </div>
         </div>
       </div>
