@@ -12,22 +12,13 @@ const Contact = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       setStatus('sending');
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-        const response = await fetch(`${apiUrl}/api/contact`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(contactForm),
-        });
-        if (response.ok) {
-          setStatus('success');
-          setContactForm({ name: '', email: '', message: '' });
-        } else {
-          setStatus('error');
-        }
-      } catch (error) {
-        setStatus('error');
-      }
+      
+      // Simulate API call for frontend-only deployment
+      setTimeout(() => {
+        console.log('Form Submitted:', contactForm);
+        setStatus('success');
+        setContactForm({ name: '', email: '', message: '' });
+      }, 1000);
     };
 
   return (

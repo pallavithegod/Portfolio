@@ -10,17 +10,20 @@ const Skills = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.skill-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out',
-      });
+      gsap.fromTo('.skill-card', 
+        { y: 50, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%', // Trigger earlier
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power3.out',
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();

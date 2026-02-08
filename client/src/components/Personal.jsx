@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Music, Send } from 'lucide-react';
+import pianoImage from '../assets/piano.jpg';
 
 const Personal = () => {
   const [factForm, setFactForm] = useState({ name: '', email: '', fact: '' });
@@ -12,21 +13,12 @@ const Personal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    try {
-      const response = await fetch('http://localhost:5000/api/fact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(factForm),
-      });
-      if (response.ok) {
-        setStatus('success');
-        setFactForm({ name: '', email: '', fact: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
+    // Simulate API call for frontend-only deployment
+    setTimeout(() => {
+      console.log('Fact Submitted:', factForm);
+      setStatus('success');
+      setFactForm({ name: '', email: '', fact: '' });
+    }, 1000);
   };
 
   return (
@@ -37,32 +29,31 @@ const Personal = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Music Section */}
-        <div className="bg-tertiary/90 backdrop-blur-sm p-8 rounded-xl border border-slate/10 hover:border-secondary/30 transition-all duration-300 group overflow-hidden relative">
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+        <div className="bg-tertiary/90 backdrop-blur-sm rounded-xl border border-slate/10 hover:border-secondary/30 transition-all duration-300 group overflow-hidden relative h-full min-h-[400px]">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={pianoImage} 
+              alt="Piano Keys" 
+              className="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+          </div>
+
+          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity z-10">
             <Music size={120} />
           </div>
           
-          <div className="relative z-10">
+          <div className="relative z-10 p-8 flex flex-col justify-end h-full">
              <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
               <Music className="mr-3 text-secondary" /> The Pianist in Me
             </h3>
-            <p className="text-slate mb-6">
+            <p className="text-slate mb-6 text-lg leading-relaxed shadow-black drop-shadow-md">
                Beyond code, I find rhythm in keys. I've performed in multiple inter-school and inter-college programs. 
                Learning Western music theory has taught me that structure and creativity go hand in hand—much like engineering.
             </p>
 
-            {/* Piano Keys Visual */}
-            <div className="flex h-16 w-full max-w-xs mb-6 relative select-none">
-              {[...Array(7)].map((_, i) => (
-                <div key={i} className="flex-1 bg-white border border-gray-300 rounded-b-md relative hover:bg-gray-100 transition-colors mx-[1px]">
-                  {i !== 2 && i !== 6 && (
-                    <div className="absolute top-0 right-[-25%] w-[60%] h-[60%] bg-black z-10 rounded-b-sm pointer-events-none"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="h-2 w-20 bg-secondary rounded-full"></div>
+            <div className="h-2 w-20 bg-secondary rounded-full mt-4"></div>
           </div>
         </div>
 
