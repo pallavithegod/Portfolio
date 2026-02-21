@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Gradient Palettes for Skills
 const gradients = [
-    'linear-gradient(145deg, #64ffda, #000)', // Teal
-    'linear-gradient(145deg, #bd34fe, #000)', // Purple
-    'linear-gradient(145deg, #ff8c00, #000)', // Orange
+    'linear-gradient(145deg, #084596ff, #000)', // Teal
+    'linear-gradient(145deg, #64ffda, #000)', // Purple
+    'linear-gradient(145deg, #efef30ff, #000)', // Orange
     'linear-gradient(145deg, #00bfff, #000)', // Blue
 ];
 
@@ -53,7 +53,7 @@ const Skills = () => {
         <span className="text-secondary font-mono text-2xl mr-4">02.</span> Technical Skills
       </h2>
 
-      <div className="h-[600px] w-full relative">
+      <div className="h-auto w-full relative">
         <ChromaGrid 
           items={chromaItems}
           radius={300}

@@ -21,7 +21,7 @@ const Hero = () => {
         
         {/* Left Content */}
         <div className="flex-1 flex flex-col justify-center items-start md:pr-12">
-          <p className="text-secondary font-mono mb-4 text-lg">Hi, my name is</p>
+          <p className="text-secondary font-mono mb-4 text-lg">Hi! I'm</p>
           
           <div className="mb-4">
             <BlurText 
@@ -35,8 +35,8 @@ const Hero = () => {
           
           <div className="mb-6">
             <BlurText 
-              text="I build things for the web." 
-              className="text-3xl md:text-5xl font-bold text-slate"
+              text="I design and build thoughtful web experiences." 
+              className="text-2xl md:text-4xl font-bold text-slate"
               delay={100}
               animateBy="words" 
               direction="bottom" 
@@ -44,8 +44,7 @@ const Hero = () => {
           </div>
 
           <p className="text-slate text-lg max-w-xl mb-8 leading-relaxed">
-            I'm a Computer Science student (2024–2028) based in Delhi. I specialize in building 
-            modern, inclusive digital experiences using React, Node.js, and AI.
+            A second year Computer Science student based in Delhi, building modern, accessible, and AI-driven web experiences.
           </p>
           
           <div ref={ctaRef} className="flex space-x-6">
@@ -67,7 +66,7 @@ const Hero = () => {
         {/* Right Image */}
         <div className="flex-1 flex justify-center md:justify-end mb-12 md:mb-0 relative group">
            {/* Offset Border wrapper - positioned behind GlareHover if possible, or we simulate it inside */}
-           <div className="relative w-[320px] h-[320px]">
+           <div className="relative w-[360px] h-[360px] md:w-[420px] md:h-[420px]">
              {/* The Offset Border */}
              <div className="absolute inset-0 border-2 border-secondary rounded-lg translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none z-0"></div>
              

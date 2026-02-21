@@ -1,5 +1,3 @@
-// Component added by Ansh - github.com/ansh-dhanani
-
 // import GradualBlur from './GradualBlur';
 
 // <section style={{position: 'relative',height: 500,overflow: 'hidden'}}>

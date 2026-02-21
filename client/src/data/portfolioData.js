@@ -20,8 +20,8 @@ export const projects = [
       action: 'Implemented RAG pipelines over resumes/notes. Integrated context-aware conversational AI with Gemini LLMs.',
       result: 'Helps students get personalized answers and job suggestions from their own content.'
     },
-    link: '#', 
-    github: '#',
+    link: 'https://sanchitapp.vercel.app/', 
+    github: 'https://github.com/garvit-arora/sanchit',
     image: '/project-sanchit.png' // Placeholder
   },
   {
@@ -36,8 +36,8 @@ export const projects = [
       action: 'Built React + Tailwind frontend. Used Gemini API to interpret financial data and generate guidance.',
       result: 'Helps everyday people understand debts and explore repayment structures with zero middlemen.'
     },
-    link: '#',
-    github: '#'
+    link: 'https://debtai.in/',
+    github: 'https://github.com/garvit-arora/debtai'
   },
   {
     id: 3,
@@ -45,18 +45,18 @@ export const projects = [
     tagline: 'Peer-to-Peer Skill Exchange',
     tech: ['HTML', 'CSS', 'JS', 'React.js', 'Node.js'],
     description: 'A platform for users to exchange skills directly without money as a barrier. React frontend for listings, Node.js backend for profiles and matching.',
-    link: '#',
-    github: '#',
+    link: 'https://cultshare.netlify.app/',
+    github: 'https://github.com/pallavithegod/Cult_Share',
     isSimple: true
   },
   {
     id: 4,
-    title: 'Google Snake Game Clone',
+    title: 'Snake Noir',
     tagline: 'Classic Browser Game',
     tech: ['HTML', 'CSS', 'JavaScript'],
     description: 'A classic Snake game for browsers that runs smoothly on multiple devices. Implemented game logic from scratch in JavaScript with responsive layout.',
-    link: '#',
-    github: '#',
+    link: 'https://snakenoir.netlify.app/',
+    github: 'https://github.com/pallavithegod/Snake-Noir',
     isSimple: true,
     isFoundational: true
   },
@@ -68,8 +68,8 @@ export const projects = [
     description: 'A mental wellness tool combining AI check-ins, productivity, and inclusive community.',
     isFoundational: true,
     isSimple: true,
-    link: '#',
-    github: '#'
+    link: 'https://mindful-haven-six.vercel.app/',
+    github: 'https://github.com/pallavithegod/Mindful-Haven'
   }
 ];
 

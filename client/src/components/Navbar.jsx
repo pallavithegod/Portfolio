@@ -27,7 +27,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="text-secondary font-bold text-2xl tracking-wider">
-          PJ<span className="text-slate">.</span>
+          Pallavi Jain<span className="text-slate">.</span>
         </Link>
 
         {/* Desktop Menu */}

@@ -14,11 +14,15 @@ const Personal = () => {
     e.preventDefault();
     setStatus('sending');
     // Simulate API call for frontend-only deployment
-    setTimeout(() => {
-      console.log('Fact Submitted:', factForm);
+      const { name, email, fact } = factForm;
+      const subject = `Fact from ${name || 'Anonymous'}`;
+      const body = `Name: ${name || 'Anonymous'}%0D%0AEmail: ${email}%0D%0A%0D%0AFact:%0D%0A${fact}`;
+      
+      window.location.href = `mailto:jainpallavi.delhi@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
       setStatus('success');
       setFactForm({ name: '', email: '', fact: '' });
-    }, 1000);
+      setTimeout(() => setStatus(''), 3000);
   };
 
   return (

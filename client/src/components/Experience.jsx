@@ -31,7 +31,7 @@ const Experience = () => {
         <span className="text-secondary font-mono text-2xl mr-4">04.</span> Experience & Education
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-12">
         {/* Education */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center"><span className="w-8 h-0.5 bg-secondary mr-3"></span>Academic Snapshot</h3>
@@ -51,15 +51,16 @@ const Experience = () => {
             ))}
           </div>
         </div>
-
+ 
         {/* Achievements / Leadership */}
-        <div>
+        <div className="flex flex-col h-full min-h-[500px]">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center"><span className="w-8 h-0.5 bg-secondary mr-3"></span>Achievements & Leadership</h3>
           
-          <div className="h-[400px] w-full flex items-center justify-center">
+          <div className="h-[500px] w-full flex items-center justify-center">
             <Carousel 
               items={achievementsData}
-              baseWidth={300}
+              baseWidth={600}
+              height={500}
               autoplay={true}
               autoplayDelay={3000}
               pauseOnHover={true}

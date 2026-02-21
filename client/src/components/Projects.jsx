@@ -33,8 +33,8 @@ const ProjectCard = ({ project, index }) => {
           <p className="text-lightSlate mb-4 max-w-xl">{project.tagline}</p>
         </div>
         <div className="flex space-x-4">
-          <a href={project.github} className="text-slate hover:text-secondary transition-colors"><FolderGit2 size={22} /></a>
-          <a href={project.link} className="text-slate hover:text-secondary transition-colors"><ExternalLink size={22} /></a>
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate hover:text-secondary transition-colors"><FolderGit2 size={22} /></a>
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-slate hover:text-secondary transition-colors"><ExternalLink size={22} /></a>
         </div>
       </div>
 
@@ -147,16 +147,19 @@ const Projects = () => {
         </div>
 
         {/* Explore More - Centered below columns */}
-        <div className="mt-12 text-center">
+        <div className="mt-20 text-center">
             <a 
-              href="https://github.com/pallavijain" 
+              href="https://github.com/pallavithegod" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-xl text-secondary hover:text-white transition-colors font-mono group"
+              className="inline-flex items-center px-10 py-5 bg-secondary/5 border border-secondary/20 rounded-2xl text-xl text-secondary hover:text-white hover:bg-secondary/10 hover:border-secondary transition-all duration-300 font-mono group relative overflow-hidden shadow-[0_0_20px_rgba(100,255,218,0.05)] hover:shadow-[0_0_40px_rgba(100,255,218,0.15)]"
             >
-              To explore more - visit my github! 
-              <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">
-                <ArrowRight size={24} />
+              {/* Subtle Animated Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none"></div>
+              
+              <span className="relative z-10">To explore more - visit my github!</span>
+              <span className="ml-4 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                <ArrowRight size={28} />
               </span>
             </a>
         </div>

@@ -14,11 +14,15 @@ const Contact = () => {
       setStatus('sending');
       
       // Simulate API call for frontend-only deployment
-      setTimeout(() => {
-        console.log('Form Submitted:', contactForm);
-        setStatus('success');
-        setContactForm({ name: '', email: '', message: '' });
-      }, 1000);
+      const { name, email, message } = contactForm;
+      const subject = `Portfolio Contact from ${name}`;
+      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+      
+      window.location.href = `mailto:jainpallavi.delhi@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
+      setStatus('success');
+      setContactForm({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus(''), 3000);
     };
 
   return (
@@ -36,7 +40,7 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6">
-                <a href="mailto:jainpallavi.delhi@gmail.com" className="flex items-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
+                <a href="mailto:jainpallavi.delhi@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
                     <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-secondary/20 transition-colors">
                         <Mail className="text-secondary" size={24} />
                     </div>
@@ -71,7 +75,7 @@ const Contact = () => {
                          <Github className="text-slate group-hover:text-secondary transition-colors" size={24} />
                          <span className="ml-2 text-slate group-hover:text-white transition-colors">GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/pallavii-" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
+                    <a href="https://www.linkedin.com/in/pallavii-" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-4 bg-tertiary/30 rounded-lg hover:bg-tertiary/50 transition-all group border border-transparent hover:border-secondary/30">
                         <Linkedin className="text-slate group-hover:text-secondary transition-colors" size={24} />
                          <span className="ml-2 text-slate group-hover:text-white transition-colors">LinkedIn</span>
                     </a>

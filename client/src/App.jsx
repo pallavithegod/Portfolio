@@ -11,7 +11,19 @@ import GradualBlur from './components/React bits/gradualblur';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showBlur, setShowBlur] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const threshold = document.documentElement.scrollHeight - 150; 
+      setShowBlur(scrollPosition < threshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Scroll to top on route change
   useEffect(() => {
@@ -28,18 +40,21 @@ function App() {
       <Ribbons colors={['#64ffda']} baseThickness={10} maxAge={300} opacity={1} />
       
       {/* Global Bottom Blur - Fixed and Persistent */}
-      <div className="fixed bottom-0 left-0 w-full h-24 pointer-events-none z-[60]" style={{ backdropFilter: 'blur(2px)', background: 'linear-gradient(to top, rgba(2, 12, 27, 1) 0%, rgba(2, 12, 27, 0) 100%)' }}></div>
+      <div 
+        className={`fixed bottom-0 left-0 w-full h-24 pointer-events-none z-[60] transition-opacity duration-500 ${showBlur ? 'opacity-100' : 'opacity-0'}`} 
+        style={{ backdropFilter: 'blur(2px)', background: 'linear-gradient(to top, rgba(2, 12, 27, 1) 0%, rgba(2, 12, 27, 0) 100%)' }}
+      ></div>
       
-      {loading ? (
-        <Preloader onComplete={handlePreloaderComplete} />
-      ) : (
+      <div className="flex flex-col min-h-screen">
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/resume" element={<ResumeViewer />} />
           </Routes>
         </Layout>
-      )}
+      </div>
+      
+      {loading && <Preloader onComplete={handlePreloaderComplete} />}
     </>
   );
 }

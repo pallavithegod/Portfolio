@@ -157,7 +157,7 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
       ref={rootRef}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className={`relative w-full h-full flex flex-wrap justify-center items-start gap-3 ${className}`}
+      className={`relative w-full h-[250px] flex flex-nowrap justify-center items-stretch gap-3 ${className}`}
       style={{
         '--r': `${radius}px`,
         '--x': '50%',
@@ -169,7 +169,7 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
           key={i}
           onMouseMove={handleCardMove}
           onClick={() => handleCardClick(c.url)}
-          className="group relative flex flex-col w-[300px] rounded-[20px] overflow-hidden border-2 border-transparent transition-colors duration-300 cursor-pointer"
+          className="group relative flex flex-col flex-1 min-w-[200px] rounded-[20px] overflow-hidden transition-colors duration-300 cursor-pointer"
           style={{
             '--card-border': c.borderColor || 'transparent',
             background: c.gradient,
@@ -183,7 +183,7 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
                 'radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)'
             }}
           />
-          <div className="relative z-10 flex-1 p-[10px] box-border flex items-center justify-center bg-[#111] overflow-hidden rounded-[10px]">
+          <div className="relative z-10 flex-1 p-[10px] box-border flex items-center justify-center overflow-hidden rounded-[10px]">
             {c.icon ? (
                <div className="text-secondary w-full h-full flex items-center justify-center scale-[2]">
                  <c.icon size={64} />
@@ -192,7 +192,7 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
                <img src={c.image} alt={c.title} loading="lazy" className="w-full h-full object-cover rounded-[10px]" />
             )}
           </div>
-          <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
+          <footer className="relative z-10 p-3 bg-gray-900 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
             <h3 className="m-0 text-[1.05rem] font-semibold">{c.title}</h3>
             {c.handle && <span className="text-[0.95rem] opacity-80 text-right">{c.handle}</span>}
             <p className="m-0 text-[0.85rem] opacity-85 col-span-2">{c.subtitle}</p>
@@ -203,8 +203,8 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
       <div
         className="absolute inset-0 pointer-events-none z-30"
         style={{
-          backdropFilter: 'grayscale(1) brightness(0.78)',
-          WebkitBackdropFilter: 'grayscale(1) brightness(0.78)',
+          backdropFilter: 'grayscale(0.4) brightness(0.9)',
+          WebkitBackdropFilter: 'grayscale(0.4) brightness(0.9)',
           background: 'rgba(0,0,0,0.001)',
           maskImage:
             'radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)',
@@ -216,8 +216,8 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
         ref={fadeRef}
         className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
         style={{
-          backdropFilter: 'grayscale(1) brightness(0.78)',
-          WebkitBackdropFilter: 'grayscale(1) brightness(0.78)',
+          backdropFilter: 'grayscale(0.4) brightness(0.9)',
+          WebkitBackdropFilter: 'grayscale(0.4) brightness(0.9)',
           background: 'rgba(0,0,0,0.001)',
           maskImage:
             'radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)',

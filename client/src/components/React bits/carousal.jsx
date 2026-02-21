@@ -56,7 +56,7 @@ const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
 
 function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }) {
   const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-  const outputRange = [90, 0, -90];
+  const outputRange = [45, 0, -45];
   const rotateY = useTransform(x, range, outputRange, { clamp: false });
 
   return (
@@ -64,8 +64,8 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
       key={`${item?.id ?? index}-${index}`}
       className={`relative shrink-0 flex flex-col ${
         round
-          ? 'items-center justify-center text-center bg-[#060010] border-0'
-          : 'items-start justify-between bg-[#222] border border-[#222] rounded-[12px]'
+          ? 'items-center justify-center text-center bg-[#020c1b] border-0'
+          : 'items-start justify-start gap-4 bg-[#0a192f] border border-secondary/20 rounded-[20px] shadow-[0_4px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm'
       } overflow-hidden cursor-grab active:cursor-grabbing`}
       style={{
         width: itemWidth,
@@ -76,13 +76,13 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
       transition={transition}
     >
       <div className={`${round ? 'p-0 m-0' : 'mb-4 p-5'}`}>
-        <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060010]">
+        <span className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-secondary/10 border border-secondary/20">
           {item.icon}
         </span>
       </div>
-      <div className="p-5">
-        <div className="mb-1 font-black text-lg text-white">{item.title}</div>
-        <p className="text-sm text-white">{item.description}</p>
+      <div className="p-8 pt-0">
+        <div className="mb-3 font-bold text-3xl text-white">{item.title}</div>
+        <p className="text-lg text-white/90 leading-relaxed">{item.description}</p>
       </div>
     </motion.div>
   );
@@ -91,6 +91,7 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
 export default function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
+  height = 400,
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
@@ -224,15 +225,15 @@ export default function Carousel({
     <div
       ref={containerRef}
       className={`relative overflow-hidden p-4 ${
-        round ? 'rounded-full border border-white' : 'rounded-[24px] border border-[#222]'
+        round ? 'rounded-full border border-white' : 'rounded-[24px] border border-secondary/20'
       }`}
       style={{
         width: `${baseWidth}px`,
-        ...(round && { height: `${baseWidth}px` })
+        height: `${height}px`
       }}
     >
       <motion.div
-        className="flex"
+        className="flex h-[430px]"
         drag={isAnimating ? false : 'x'}
         {...dragProps}
         style={{
@@ -270,10 +271,10 @@ export default function Carousel({
                 activeIndex === index
                   ? round
                     ? 'bg-white'
-                    : 'bg-[#333333]'
+                    : 'bg-secondary'
                   : round
-                    ? 'bg-[#555]'
-                    : 'bg-[rgba(51,51,51,0.4)]'
+                    ? 'bg-slate/50'
+                    : 'bg-slate/20'
               }`}
               animate={{
                 scale: activeIndex === index ? 1.2 : 1
