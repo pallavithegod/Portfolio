@@ -53,12 +53,5 @@ A modern, animated, and fully responsive portfolio website built with React, Vit
 - **Contact Form:** Functional form integrated with the backend API.
 - **Custom Cursor:** Interactive cursor for desktop users.
 
-## Future Improvements
-
-- [ ] Integrate real email service (SendGrid/Nodemailer).
-- [ ] Connect to a database (MongoDB/PostgreSQL) for storing messages/facts.
-- [ ] Add a blog section.
-- [ ] Admin dashboard for managing content.
-
 ---
 *Built with ❤️ by Pallavi Jain*
