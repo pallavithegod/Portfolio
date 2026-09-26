@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0b0d;
+  --bg-raised: #131316;
+  --border: #232328;
+  --text: #e8e6e1;
+  --text-dim: #8a8a92;
+  --accent: #e8823c;
+  --accent-dim: rgba(232, 130, 60, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.font-mono-tag {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text);
+}
+
+.markdown-body {
+  line-height: 1.7;
+}
+.markdown-body h2 {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.markdown-body p {
+  margin: 0.75rem 0;
+  color: var(--text-dim);
+}
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0.75rem 0 0.75rem 1.25rem;
+  color: var(--text-dim);
+}
+.markdown-body li {
+  margin: 0.25rem 0;
+}
+.markdown-body a {
+  color: var(--accent);
+}
+.markdown-body code {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  background: var(--bg-raised);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875em;
+}
+.markdown-body pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.markdown-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.roaming-cat[data-mode="walk"] svg {
+  animation: cat-bob 0.4s infinite ease-in-out;
+}
+.roaming-cat[data-mode="flee"] svg {
+  animation: cat-bob 0.18s infinite ease-in-out;
+}
+.roaming-cat[data-mode="idle"] svg {
+  animation: cat-idle 2s infinite ease-in-out;
+}
+
+@keyframes cat-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes cat-idle {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.cat-pupil {
+  animation: cat-blink 4s infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes cat-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+.cat-zzz {
+  animation: cat-zzz-float 2.4s infinite ease-in-out;
+}
+@keyframes cat-zzz-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

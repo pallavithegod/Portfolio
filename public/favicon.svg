@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- background -->
+  <rect width="32" height="32" rx="8" fill="#0b0b0d"/>
+  <!-- ears -->
+  <path d="M7 14 L4 4 L13 10 Z" fill="#0a0a0a" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M25 14 L28 4 L19 10 Z" fill="#0a0a0a" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- head -->
+  <circle cx="16" cy="18" r="11" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/>
+  <!-- eyes -->
+  <circle cx="12" cy="17" r="2" fill="#fff"/>
+  <circle cx="20" cy="17" r="2" fill="#fff"/>
+  <circle cx="12" cy="17" r="0.9" fill="#0a0a0a"/>
+  <circle cx="20" cy="17" r="0.9" fill="#0a0a0a"/>
+  <!-- nose -->
+  <path d="M15 21 L17 21 L16 22.2 Z" fill="#e8823c"/>
+</svg>
