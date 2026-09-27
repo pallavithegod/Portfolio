@@ -66,6 +66,7 @@ function CatSvg({ pose }) {
 
 export default function RoamingCat() {
   const elRef = useRef(null);
+  const catRef = useRef(null);
   const pos = useRef(randomPoint());
   const target = useRef(randomPoint());
   const facing = useRef(1);
@@ -136,8 +137,11 @@ export default function RoamingCat() {
       }
 
       if (elRef.current) {
-        elRef.current.style.transform = `translate(${p.x}px, ${p.y}px) scaleX(${facing.current})`;
+        elRef.current.style.transform = `translate(${p.x}px, ${p.y}px)`;
         elRef.current.dataset.mode = mode.current === "flee" ? "flee" : mode.current === "idle" ? "idle" : "walk";
+      }
+      if (catRef.current) {
+        catRef.current.style.transform = `scaleX(${facing.current})`;
       }
 
       raf = requestAnimationFrame(tick);
@@ -175,7 +179,9 @@ export default function RoamingCat() {
           {speech}
         </span>
       )}
-      <CatSvg pose={pose} />
+      <span ref={catRef} className="block h-full w-full">
+        <CatSvg pose={pose} />
+      </span>
     </div>
   );
 }
