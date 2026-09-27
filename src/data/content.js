@@ -14,7 +14,6 @@ export const profile = {
     { label: "LinkedIn", url: "https://linkedin.com/in/pallavii-" },
     { label: "X", url: "https://x.com/Pallavi_jain06" },
     { label: "Email", url: "mailto:jainpallavi.delhi@gmail.com" },
-    { label: "Website", url: "https://pallavijain.vercel.app" },
   ],
 };
 

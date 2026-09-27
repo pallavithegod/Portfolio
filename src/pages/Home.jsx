@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
-import { experience, profile, skills } from "../data/content";
+import { experience, profile, projects, skills } from "../data/content";
 import HoverNote from "../components/HoverNote";
+import PianoBanner from "../components/PianoBanner";
 
 const skillLabels = ["01", "02", "03", "04"];
+const featuredProjectCopy = {
+  recallops: "AI-assisted incident monitoring and remediation for modern deployment workflows.",
+  coverfi: "Stellar infrastructure for safer stablecoin payments and reserve-backed protection.",
+  "research-agent": "A multi-step agent that turns complex questions into cited, evidence-scored reports.",
+};
+const featuredProjects = ["recallops", "coverfi", "research-agent"].map((slug) =>
+  projects.find((project) => project.slug === slug),
+);
 
 function Highlight({ children }) {
   return <span className="rounded bg-[var(--accent-dim)] px-1.5 py-0.5 text-[#c3c1bc]">{children}</span>;
@@ -13,16 +22,8 @@ export default function Home() {
     <div className="flex flex-col gap-16">
       <section>
         <div className="relative mb-16">
-          <div className="relative h-40 overflow-hidden border border-[var(--border)] bg-[linear-gradient(135deg,#171116_0%,#25150f_42%,#111116_100%)] sm:h-52">
-            <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(232,130,60,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(232,130,60,0.12)_1px,transparent_1px)] [background-size:28px_28px]" />
-            <div className="absolute -left-16 top-4 h-48 w-48 rounded-full bg-[var(--accent)]/15 blur-3xl" />
-            <div className="absolute -right-10 bottom-0 h-40 w-64 rounded-full bg-orange-300/10 blur-3xl" />
-            <svg viewBox="0 0 720 220" className="absolute inset-0 h-full w-full" fill="none" aria-hidden="true">
-              <path d="M-40 172C90 103 158 210 284 137C412 63 485 133 760 34" stroke="rgba(232,130,60,.36)" strokeWidth="1.5" />
-              <path d="M-30 194C105 125 176 226 304 154C438 79 531 139 758 68" stroke="rgba(232,130,60,.16)" strokeWidth="1" strokeDasharray="5 7" />
-              <circle cx="284" cy="137" r="4" fill="#e8823c" />
-              <circle cx="485" cy="104" r="3" fill="#e8823c" opacity=".7" />
-            </svg>
+          <div className="relative h-40 overflow-hidden border border-[var(--border)] sm:h-52">
+            <PianoBanner />
           </div>
           <div className="absolute -bottom-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-[var(--bg)] bg-[var(--bg-raised)] shadow-xl ring-1 ring-[var(--border)] sm:left-8 sm:h-28 sm:w-28">
             <img src="/pfp.jpg" alt="Pallavi Jain" className="h-full w-full object-cover" />
@@ -57,6 +58,28 @@ export default function Home() {
             ))}
             <a href="/resume.pdf" download className="font-mono-tag text-sm font-semibold text-[var(--accent)] hover:underline">resume ↗</a>
           </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-5">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="mb-2 font-mono-tag text-xs uppercase tracking-[0.2em] text-[var(--accent)]">Selected builds</p>
+            <h2 className="text-xl font-semibold text-[var(--text)]">Featured projects</h2>
+          </div>
+          <Link to="/projects" className="font-mono-tag text-xs text-[var(--text-dim)] transition-colors hover:text-[var(--accent)]">All projects →</Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <article key={project.slug} className="flex flex-col rounded-xl border border-[var(--border)] bg-[var(--bg-raised)] p-4 transition-colors hover:border-[var(--accent)]">
+              <h3 className="font-medium text-[var(--text)]">{project.name}</h3>
+              <p data-scroll-tone className="mt-2 flex-1 text-sm leading-relaxed text-[var(--text-dim)]">{featuredProjectCopy[project.slug]}</p>
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--border)] pt-3 font-mono-tag text-xs">
+                <a href={project.repo} target="_blank" rel="noreferrer" className="text-[var(--text-dim)] transition-colors hover:text-[var(--accent)]">GitHub ↗</a>
+                <Link to={`/projects/${project.slug}`} className="text-[var(--accent)] hover:underline">View details →</Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 

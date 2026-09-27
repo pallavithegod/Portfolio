@@ -32,6 +32,70 @@ body {
   }
 }
 
+.music-sheet-track {
+  animation: music-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+.music-staff-line {
+  stroke: rgba(232, 230, 225, 0.24);
+  stroke-width: 1;
+}
+
+.music-bar-line {
+  stroke: rgba(232, 230, 225, 0.13);
+  stroke-width: 1;
+}
+
+.music-clef {
+  fill: rgba(232, 230, 225, 0.42);
+  font-family: "Times New Roman", serif;
+  font-size: 51px;
+}
+
+.music-clef-bass {
+  font-size: 43px;
+}
+
+.music-note {
+  fill: rgba(232, 230, 225, 0.43);
+  stroke: rgba(232, 230, 225, 0.43);
+  stroke-width: 1.5;
+  transition: fill 180ms ease, stroke 180ms ease, filter 180ms ease;
+}
+
+.music-note-active {
+  fill: var(--accent);
+  stroke: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(232, 130, 60, 0.9));
+}
+
+@keyframes music-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 639px) {
+  .music-sheet-track {
+    animation-duration: 46s;
+  }
+
+  .music-note-optional {
+    display: none;
+  }
+
+  .music-sheet-panel {
+    width: 820px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-sheet-track {
+    animation: none;
+    transform: translateX(-12%);
+  }
+}
+
 .font-mono-tag {
   font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
 }
