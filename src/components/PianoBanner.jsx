@@ -26,7 +26,7 @@ export default function PianoBanner() {
   const trackRef = useRef(null);
   const animationFrameRef = useRef(null);
   const progressRef = useRef(0);
-  const { soundEnabled, toggleSound, getVisualProgress } = useMusicPlayer();
+  const { soundEnabled, playbackBlocked, toggleSound, getVisualProgress } = useMusicPlayer();
   const [activeNote, setActiveNote] = useState({ panel: 0, index: 0 });
   const [reduceMotion, setReduceMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -147,8 +147,9 @@ export default function PianoBanner() {
 
       <button
         type="button"
+        data-sound-toggle
         onClick={toggleSound}
-        aria-label={soundEnabled ? "Turn sound off" : "Turn sound on"}
+        aria-label={playbackBlocked ? "Start sound" : soundEnabled ? "Turn sound off" : "Turn sound on"}
         aria-pressed={soundEnabled}
         className="pointer-events-auto absolute right-3 top-3 z-40 flex h-8 items-center gap-1.5 rounded-full bg-black/25 px-2.5 font-mono-tag text-[10px] text-[var(--text)] backdrop-blur transition hover:bg-black/45 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
       >
@@ -160,7 +161,7 @@ export default function PianoBanner() {
             <path d="m17 9 5 6m0-6-5 6" />
           )}
         </svg>
-        <span>{soundEnabled ? "on" : "off"}</span>
+        <span>{playbackBlocked ? "start" : soundEnabled ? "on" : "off"}</span>
       </button>
 
       <svg viewBox="0 0 960 180" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 z-10 h-full w-full" aria-hidden="true">

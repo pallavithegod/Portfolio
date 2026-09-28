@@ -4,7 +4,7 @@ import { MusicPlayerContext } from "./musicPlayerContext";
 
 const AUDIO_SRC = "/piano.mp3";
 const SONG_DURATION_MS = 177000;
-const AUDIO_VOLUME = 0.12;
+const AUDIO_VOLUME = 0.26;
 
 export function MusicPlayerProvider({ children }) {
   const { pathname } = useLocation();
@@ -12,6 +12,7 @@ export function MusicPlayerProvider({ children }) {
   const visualStartedAtRef = useRef(null);
   const soundEnabledRef = useRef(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [playbackBlocked, setPlaybackBlocked] = useState(false);
 
   const getVisualProgress = useCallback(() => {
     if (visualStartedAtRef.current === null) {
@@ -28,10 +29,24 @@ export function MusicPlayerProvider({ children }) {
     if (Number.isFinite(audio.duration) && audio.duration > 0) {
       audio.currentTime = getVisualProgress() * audio.duration;
     }
-    audio.play().catch(() => {});
+    audio
+      .play()
+      .then(() => setPlaybackBlocked(false))
+      .catch((error) => {
+        if (error.name === "NotAllowedError") {
+          setPlaybackBlocked(true);
+        }
+      });
   }, [getVisualProgress]);
 
-  const resumeIfNeeded = useCallback(() => {
+  const resumeIfNeeded = useCallback((event) => {
+    if (
+      event?.target instanceof Element &&
+      event.target.closest("[data-sound-toggle]")
+    ) {
+      return;
+    }
+
     const audio = audioRef.current;
     if (
       audio &&
@@ -95,8 +110,14 @@ export function MusicPlayerProvider({ children }) {
     if (!audio) return;
 
     if (soundEnabledRef.current) {
+      if (audio.paused) {
+        syncAndPlay();
+        return;
+      }
+
       soundEnabledRef.current = false;
       setSoundEnabled(false);
+      setPlaybackBlocked(false);
       audio.pause();
       return;
     }
@@ -107,8 +128,8 @@ export function MusicPlayerProvider({ children }) {
   }, [syncAndPlay]);
 
   return (
-    <MusicPlayerContext.Provider value={{ soundEnabled, toggleSound, getVisualProgress }}>
-      <audio ref={audioRef} src={AUDIO_SRC} preload="auto" loop />
+    <MusicPlayerContext.Provider value={{ soundEnabled, playbackBlocked, toggleSound, getVisualProgress }}>
+      <audio ref={audioRef} src={AUDIO_SRC} preload="auto" autoPlay loop playsInline />
       {children}
     </MusicPlayerContext.Provider>
   );

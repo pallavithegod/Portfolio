@@ -53,8 +53,8 @@ body {
   font-size: 51px;
 }
 
-.music-clef-bass {
-  font-size: 43px;
+.music-clef-bass-mark {
+  fill: rgba(232, 230, 225, 0.62);
 }
 
 .music-note {
