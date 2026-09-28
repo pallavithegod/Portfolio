@@ -76,6 +76,10 @@ body {
 }
 
 @media (max-width: 639px) {
+  .music-clef:not(.music-clef-bass) {
+    font-size: 44px;
+  }
+
   .music-sheet-track {
     animation-duration: 46s;
   }
