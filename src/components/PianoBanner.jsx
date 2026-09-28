@@ -184,7 +184,7 @@ export default function PianoBanner() {
 
       <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16">
         <svg viewBox="0 0 64 180" preserveAspectRatio="none" className="absolute inset-0 h-full w-16" aria-hidden="true">
-          <text x="14" y="76" className="music-clef">𝄞</text>
+          <text x="14" y="76" className="music-clef music-clef-treble">𝄞</text>
           <text x="16" y="145" className="music-clef music-clef-bass">𝄢</text>
         </svg>
       </div>

@@ -75,11 +75,14 @@ body {
   to { transform: translateX(-50%); }
 }
 
-@media (max-width: 639px) {
-  .music-clef:not(.music-clef-bass) {
-    font-size: 44px;
+@media (max-width: 767px) {
+  .music-clef-treble {
+    font-size: 34px;
+    transform: translate(4px, -2px);
   }
+}
 
+@media (max-width: 639px) {
   .music-sheet-track {
     animation-duration: 46s;
   }
