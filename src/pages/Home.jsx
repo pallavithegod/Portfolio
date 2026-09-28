@@ -25,7 +25,7 @@ export default function Home() {
           <div className="relative h-40 overflow-hidden border border-[var(--border)] sm:h-52">
             <PianoBanner />
           </div>
-          <div className="absolute -bottom-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-[var(--bg)] bg-[var(--bg-raised)] shadow-xl ring-1 ring-[var(--border)] sm:left-8 sm:h-28 sm:w-28">
+          <div className="absolute -bottom-12 left-5 z-40 h-24 w-24 overflow-hidden rounded-full border-4 border-[var(--bg)] bg-[var(--bg-raised)] shadow-xl ring-1 ring-[var(--border)] sm:left-8 sm:h-28 sm:w-28">
             <img src="/pfp.jpg" alt="Pallavi Jain" className="h-full w-full object-cover" />
           </div>
         </div>
