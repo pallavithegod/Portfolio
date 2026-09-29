@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200..800&family=Instrument+Sans:wght@400..700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -17,8 +18,14 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
 }
 
 #smooth-wrapper,

@@ -130,11 +130,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-4">
-        <h2 className="text-xl font-semibold text-[var(--text)]">Achievements & leadership</h2>
-        <p data-scroll-tone className="text-[15px] leading-8 text-[var(--text-dim)]">
-          I'm a <Highlight>three-time hackathon winner</Highlight>, with first-place finishes at <Highlight>Prompt Wars</Highlight>, the <Highlight>AI Powered Solution Expo</Highlight> at IIC BPIT, and <Highlight>Steller Build Station Delhi NCR</Highlight>, alongside top finishes at GDG TechSprint and SnowHack IPEC. I later served as a <Highlight>hackathon judge</Highlight> at Innovate-X 2026, evaluating <Highlight>100+ pitches</Highlight> at the University of Delhi. As <Highlight>PR Head</Highlight> of my college Music Society, I led campaigns that strengthened event engagement while contributing creatively as a <Highlight>pianist</Highlight>. I'm also a <Highlight>strong communicator</Highlight> who has led teams across multiple initiatives and hosted <Highlight>large on- and off-campus events</Highlight>.
-        </p>
+      <section className="flex flex-col gap-6">
+        <div>
+          <p className="mb-2 font-mono-tag text-xs uppercase tracking-[0.2em] text-[var(--accent)]">Beyond the build</p>
+          <h2 className="text-xl font-semibold text-[var(--text)]">Achievements & leadership</h2>
+          <p data-scroll-tone className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--text-dim)]">
+            A few outcomes that reflect how I compete, communicate, and lead beyond the code.
+          </p>
+        </div>
+
+        <div className="grid gap-x-8 sm:grid-cols-2">
+          <article className="border-t border-[var(--border)] py-5">
+            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">03 / First-place wins</p>
+            <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
+              A <Highlight>three-time hackathon winner</Highlight> at Prompt Wars, AI Powered Solution Expo at IIC BPIT, and Stellar Build Station Delhi NCR, with additional top finishes at GDG TechSprint and SnowHack IPEC.
+            </p>
+          </article>
+
+          <article className="border-t border-[var(--border)] py-5">
+            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">100+ / Pitches evaluated</p>
+            <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
+              Served as a <Highlight>hackathon judge</Highlight> at Innovate-X 2026, evaluating more than 100 pitches at the University of Delhi for clarity, usefulness, and technical execution.
+            </p>
+          </article>
+
+          <article className="border-t border-[var(--border)] py-5">
+            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">Lead / Creative communities</p>
+            <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
+              As <Highlight>PR Head</Highlight> of my college Music Society, I led campaigns that strengthened event engagement while continuing to contribute on stage as a pianist.
+            </p>
+          </article>
+
+          <article className="border-t border-[var(--border)] py-5">
+            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">Host / Teams & events</p>
+            <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
+              A <Highlight>strong communicator</Highlight> who has led teams across technical and creative initiatives, run workshops, and hosted large on-campus and off-campus events.
+            </p>
+          </article>
+        </div>
       </section>
     </div>
   );
