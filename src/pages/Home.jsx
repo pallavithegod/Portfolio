@@ -5,11 +5,11 @@ import PianoBanner from "../components/PianoBanner";
 
 const skillLabels = ["01", "02", "03", "04"];
 const featuredProjectCopy = {
-  recallops: "AI-assisted incident monitoring and remediation for modern deployment workflows.",
+  "ima-agent": "A DevOps assistant that retrieves incident context and root cause analyses in seconds.",
   coverfi: "Stellar infrastructure for safer stablecoin payments and reserve-backed protection.",
   "research-agent": "A multi-step agent that turns complex questions into cited, evidence-scored reports.",
 };
-const featuredProjects = ["recallops", "coverfi", "research-agent"].map((slug) =>
+const featuredProjects = ["ima-agent", "coverfi", "research-agent"].map((slug) =>
   projects.find((project) => project.slug === slug),
 );
 
@@ -56,6 +56,7 @@ export default function Home() {
                 {social.label}
               </a>
             ))}
+            <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="font-mono-tag text-sm font-semibold text-[var(--text-dim)] transition-colors hover:text-[var(--accent)]">{profile.phone}</a>
             <a href="/resume.pdf" download className="font-mono-tag text-sm font-semibold text-[var(--accent)] hover:underline">resume ↗</a>
           </div>
         </div>
@@ -128,6 +129,9 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <p data-scroll-tone className="border-l-2 border-[var(--accent)] pl-4 text-sm leading-relaxed text-[var(--text-dim)]">
+          <span className="font-medium text-[var(--text)]">Certifications & training:</span> Cloud Computing Summer Internship Training · Generative AI (Udemy)
+        </p>
       </section>
 
       <section className="flex flex-col gap-6">
@@ -143,28 +147,28 @@ export default function Home() {
           <article className="border-t border-[var(--border)] py-5">
             <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">03 / First-place wins</p>
             <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
-              A <Highlight>three-time hackathon winner</Highlight> at Prompt Wars, AI Powered Solution Expo at IIC BPIT, and Stellar Build Station Delhi NCR, with additional top finishes at GDG TechSprint and SnowHack IPEC.
+              Three first-place wins: <Highlight>Stellar Build Station (CoverFi), AI Powered Solution Expo (CouncilX), and Prompt Wars</Highlight>; plus Top 5 at GDG TechSprint and Top 15 at SnowHackIPEC.
             </p>
           </article>
 
           <article className="border-t border-[var(--border)] py-5">
-            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">100+ / Pitches evaluated</p>
+            <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">200+ / Pitches evaluated</p>
             <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
-              Served as a <Highlight>hackathon judge</Highlight> at Innovate-X 2026, evaluating more than 100 pitches at the University of Delhi for clarity, usefulness, and technical execution.
+              Evaluated 200+ pitches at <Highlight>Innovate-X 2026 (University of Delhi)</Highlight>, with a brief return as a judge at REFORGED '26.
             </p>
           </article>
 
           <article className="border-t border-[var(--border)] py-5">
             <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">Lead / Creative communities</p>
             <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
-              As <Highlight>PR Head</Highlight> of my college Music Society, I led campaigns that strengthened event engagement while continuing to contribute on stage as a pianist.
+              As <Highlight>Web Development Head at ANVESHAN</Highlight>, I designed and built the society website, <a href="https://anveshan.dev" target="_blank" rel="noreferrer" className="text-[var(--text)] underline decoration-[var(--accent)] underline-offset-2">anveshan.dev</a>.
             </p>
           </article>
 
           <article className="border-t border-[var(--border)] py-5">
             <p className="font-mono-tag text-xs uppercase tracking-[0.16em] text-[var(--accent)]">Host / Teams & events</p>
             <p data-scroll-tone className="mt-3 text-sm leading-7 text-[var(--text-dim)]">
-              A <Highlight>strong communicator</Highlight> who has led teams across technical and creative initiatives, run workshops, and hosted large on-campus and off-campus events.
+              Hosted REFORGED '26 for 100+ participants and led 5+ Music Society PR campaigns, reaching 300+ attendees.
             </p>
           </article>
         </div>

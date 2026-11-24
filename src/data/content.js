@@ -4,10 +4,11 @@ export const profile = {
   availability: "Available for work",
   bio: [
     "I'm a Computer Science and Engineering undergraduate in Delhi, focused on full-stack development, backend systems, and practical AI applications.",
-    "I build products across React, Node.js, Next.js, Python, and Azure—from agentic research workflows to incident remediation systems and campus platforms.",
+    "I build products across React, Node.js, Next.js, Python, and Azureâ€”from agentic research workflows to incident remediation systems and campus platforms.",
     "Outside development, I lead technical initiatives, run workshops, participate in hackathons, and play and teach piano.",
   ],
   email: "jainpallavi.delhi@gmail.com",
+  phone: "+91 8076717873",
   location: "Delhi, India",
   socials: [
     { label: "GitHub", url: "https://github.com/pallavithegod" },
@@ -18,22 +19,29 @@ export const profile = {
 };
 
 export const skills = [
-  { group: "Languages", items: ["Java", "Python", "C", "C++", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"] },
-  { group: "Frameworks & Libraries", items: ["React.js", "Node.js", "Next.js", "Tailwind CSS", "REST APIs", "LangGraph", "WebLLM"] },
-  { group: "Cloud & DevOps", items: ["Cloud Computing", "Microsoft Azure", "AWS", "Docker", "Jenkins", "CI/CD", "Git", "Vercel"] },
-  { group: "Core", items: ["Data Structures & Algorithms", "OOP", "DBMS", "System Design", "Full-stack Development", "RAG", "LLMs"] },
+  { group: "Languages", items: ["Java", "Python", "C", "C++", "JavaScript (ES6+)", "SQL", "TypeScript","HTML5", "CSS3"] },
+  { group: "Frameworks & Libraries", items: ["React.js", "Node.js", "Express.js", "Next.js", "Tailwind CSS", "LangChain", "LangGraph", "WebLLM"] },
+  { group: "Cloud & DevOps", items: ["Cloud Computing", "Microsoft Azure", "AWS", "Docker", "Jenkins", "CI/CD", "Git", "GitHub Actions", "Vercel"] },
+  { group: "Core", items: ["Data Structures & Algorithms", "OOP", "DBMS", "System Design", "Generative AI", "Full Stack Development", "RAG", "LLMs"] },
 ];
 
 export const experience = [
+  {
+    role: "Open Source Contributor",
+    org: "Apache Software Foundation (BifroMQ, Amoro, HugeGraph)",
+    location: "Remote",
+    period: "Jan 2026 - Present",
+    bullets: ["Resolved 5+ code quality issues and unit test bugs across Apache BifroMQ, Amoro, and HugeGraph."],
+  },
   {
     role: "Full Stack Developer Intern",
     org: "Mercury AI",
     website: "https://mercuryai.in",
     location: "Remote",
-    period: "Oct 2025 – Dec 2025",
+    period: "Oct 2025 - Dec 2025",
     bullets: [
-      "Developed core product features with React.js and Node.js, including backend data flows and REST API integrations.",
-      "Set up debugging pipelines and structured Git workflows to improve deployment reliability.",
+      "Developed 10+ core features using React.js and Node.js, optimizing backend flows and REST APIs.",
+      "Configured debugging pipelines and structured Git workflows, cutting deployment errors by 30%.",
     ],
   },
   {
@@ -41,46 +49,49 @@ export const experience = [
     org: "ANVESHAN Tech Society",
     website: "https://anveshan.dev",
     location: "Delhi, India",
+    period: "Jan 2025 - Present",
     bullets: [
       "Designed and built the ANVESHAN website end to end, owning the complete visual design and web implementation.",
-      "Led hackathons and technical initiatives and delivered web development workshops for 1,000+ peers and students.",
+      "Hosted and managed the REFORGED '26 Hackathon end to end, welcoming 100+ participants.",
     ],
   },
 ];
 
 export const projects = [
   {
-    slug: "recallops",
-    name: "RecallOps",
+    slug: "ima-agent",
+    name: "IMA (Incident Memory Agent)",
+    screenshot: "/project-screenshots/ima-agent.png",
     eyebrow: "Incident Memory Agent",
-    repo: "https://github.com/pallavithegod/ima-agent",
+    repo: "https://github.com/pallavithegod/ima-agent-backend-python",
     live: "https://imagent-zeta.vercel.app",
-    stack: ["Python", "LangGraph", "Azure", "React", "TypeScript", "LLMs"],
-    summary: "A deployment-monitoring and remediation workspace that turns failures into grounded diagnoses and reviewable fixes.",
-    description: "RecallOps connects deployment signals, incident history, and an agentic remediation workflow in one operational dashboard. It watches connected repositories and hosting providers, groups related failures, recalls similar incidents, and prepares evidence-backed diagnoses before suggesting a fix. Human approval remains part of the workflow before a draft pull request is created.",
+    stack: ["Python", "LangGraph", "Microsoft Azure", "LLMs"],
+    summary: "An automated DevOps assistant that triages production alerts and retrieves grounded root cause analyses in under 5 seconds.",
+    description: "IMA (Incident Memory Agent) is a DevOps assistant for faster production incident response. It indexes system logs and incident histories on Microsoft Azure, then uses a LangGraph retrieval-augmented generation pipeline to find relevant past incidents and return actionable remediation steps.",
     bullets: [
-      "Monitors GitHub repositories and Vercel or Render deployments from a single responsive dashboard.",
-      "Uses LangGraph to classify incidents, retrieve relevant history, diagnose failures, and propose remediation.",
-      "Supports incident reports, on-call handoffs, encrypted integrations, and explicitly approved draft pull requests.",
+      "Automates production alert triage and returns root cause analyses in under 5 seconds.",
+      "Indexed 500+ system logs and incident histories on Microsoft Azure using vector embeddings.",
+      "Built a LangGraph RAG pipeline that returns remediation steps from 50+ resolved incidents.",
     ],
     architecture: [
-      { label: "Interface", nodes: ["React dashboard", "Firebase authentication"] },
-      { label: "Integrations", nodes: ["GitHub", "Vercel", "Render"] },
-      { label: "Agent layer", nodes: ["FastAPI", "LangGraph", "Azure OpenAI"] },
-      { label: "Memory & output", nodes: ["Incident memory", "Diagnosis", "Draft PR"] },
+      { label: "Incident data", nodes: ["System logs", "Incident history"] },
+      { label: "Knowledge index", nodes: ["500+ logs", "Vector embeddings"] },
+      { label: "Agent layer", nodes: ["LangGraph", "RAG pipeline"] },
+      { label: "Response", nodes: ["Root cause analysis", "Remediation steps"] },
     ],
   },
   {
     slug: "research-agent",
     name: "Multi-Step Research Agent",
+    screenshot: "/project-screenshots/research-agent.png",
     repo: "https://github.com/pallavithegod/research-agent",
-    stack: ["Next.js", "FastAPI", "AI Agents", "SerpApi", "x402", "Azure"],
-    summary: "An evidence-first research workspace that plans multi-step investigations and returns structured, cited reports.",
-    description: "The Multi-Step Research Agent turns broad natural-language questions into a sequence of focused research tasks. Its planner and executor coordinate search, source selection, evidence scoring, and synthesis across Quick, Deep, and Compare modes, while the interface keeps sources and revisions visible to the user.",
+    stack: ["Next.js", "AI Agents", "SerpApi", "x402 Payments"],
+    summary: "A research agent that decomposes complex questions into focused steps and delivers reports with citations.",
+    description: "The Multi-Step Research Agent turns broad natural-language questions into focused investigations. An agent orchestrator splits each query into 3â€“5 sub-questions, while a planner-executor loop sequences research steps and x402 API micro-payments. Backend workers and SerpApi retrieve live sources for cited reports.",
     bullets: [
-      "Breaks complex prompts into traceable sub-questions and sequential research steps.",
-      "Enforces source policies and scores evidence quality before generating a report.",
-      "Pairs an asynchronous FastAPI service with a Next.js analytical workspace and an Azure Container Apps deployment design.",
+      "Splits complex queries into 3â€“5 sub-questions for cited reports.",
+      "Uses a planner-executor loop to sequence research steps with x402 API micro-payments.",
+      "Connects backend workers and SerpApi pipelines to retrieve 15+ live web sources per query.",
     ],
     architecture: [
       { label: "Workspace", nodes: ["Next.js dashboard", "Authentication"] },
@@ -92,6 +103,7 @@ export const projects = [
   {
     slug: "sanchit",
     name: "Sanchit",
+    screenshot: "/project-screenshots/sanchit.png",
     repo: "https://github.com/garvit-arora/sanchit",
     stack: ["React", "Node.js", "Azure", "WebLLM", "Gemini API"],
     summary: "A campus network combining real-time community features with private, browser-side AI assistance.",
@@ -111,6 +123,7 @@ export const projects = [
   {
     slug: "commitvault",
     name: "CommitVault",
+    screenshot: "/project-screenshots/commitvault.png",
     repo: "https://github.com/pallavithegod/CommitVault-Frontend",
     live: "https://commit-vault.vercel.app",
     stack: ["React", "Node.js", "MySQL", "Tailwind CSS", "AWS"],
@@ -131,6 +144,7 @@ export const projects = [
   {
     slug: "civicbounty",
     name: "CivicBounty",
+    screenshot: "/project-screenshots/civicbounty.png",
     repo: "https://github.com/pallavithegod/CivicBounty",
     stack: ["React", "Stellar", "Tailwind CSS", "GSAP", "Framer Motion"],
     summary: "A Stellar-based civic platform that turns local infrastructure work into transparent, funded bounties.",
@@ -150,6 +164,7 @@ export const projects = [
   {
     slug: "coverfi",
     name: "CoverFi",
+    screenshot: "/project-screenshots/coverfi.png",
     repo: "https://github.com/CoverFI-space",
     live: "https://www.coverfi.space/",
     stack: ["Stellar", "Soroban", "Rust", "JavaScript", "TypeScript"],

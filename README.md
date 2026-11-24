@@ -7,7 +7,7 @@ Live site: [pallavijain.vercel.app](https://pallavijain.vercel.app)
 ## Highlights
 
 - Professional profile, contact links, technical skills, and leadership experience
-- Selected projects including RecallOps, Multi-Step Research Agent, Sanchit, CommitVault, CivicBounty, CoverFi, and Anti-Prod
+- Selected projects including IMA (Incident Memory Agent), Multi-Step Research Agent, Sanchit, CommitVault, CivicBounty, CoverFi, and Anti-Prod
 - Responsive project and experience pages
 - Live links and source repositories where publicly available
 - Blog section ready for future posts
@@ -49,6 +49,7 @@ src/
   data/          Portfolio content
   pages/         Home, projects, and experience pages
 public/          Static assets and resume
+public/project-screenshots/  Project detail page screenshot assets
 ```
 
 ## Contact
@@ -56,6 +57,7 @@ public/          Static assets and resume
 - Email: [jainpallavi.delhi@gmail.com](mailto:jainpallavi.delhi@gmail.com)
 - GitHub: [pallavithegod](https://github.com/pallavithegod)
 - LinkedIn: [linkedin.com/in/pallavii-](https://linkedin.com/in/pallavii-)
+<!-- - Phone: +91 8076717873 -->
 - X: [@Pallavi_jain06](https://x.com/Pallavi_jain06)
 
 ## License

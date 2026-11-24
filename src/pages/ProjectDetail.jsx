@@ -23,10 +23,26 @@ export default function ProjectDetail() {
         <div className="mt-5 flex flex-wrap gap-2">{project.stack.map((tech) => <Tag key={tech}>{tech}</Tag>)}</div>
       </header>
 
-      <section>
-        <p className="mb-2 font-mono-tag text-xs uppercase tracking-[0.18em] text-[var(--accent)]">Overview</p>
-        <h2 className="text-xl font-semibold text-[var(--text)]">What it does</h2>
-        <p data-scroll-tone className="mt-4 leading-8 text-[var(--text-dim)]">{project.description}</p>
+      <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <figure className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-raised)]">
+          <img
+            src={project.screenshot || `/project-screenshots/${project.slug}.webp`}
+            alt={`${project.name} landing page screenshot`}
+            className="aspect-[16/10] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = "/project-screenshots/placeholder.svg";
+            }}
+          />
+          <figcaption className="border-t border-[var(--border)] px-4 py-3 font-mono-tag text-[10px] uppercase tracking-[0.14em] text-[var(--text-dim)]">Project preview</figcaption>
+        </figure>
+        <div>
+          <p className="mb-2 font-mono-tag text-xs uppercase tracking-[0.18em] text-[var(--accent)]">Overview</p>
+          <h2 className="text-xl font-semibold text-[var(--text)]">What it does</h2>
+          <p data-scroll-tone className="mt-4 leading-8 text-[var(--text-dim)]">{project.description}</p>
+        </div>
       </section>
 
       <section>
