@@ -15,7 +15,19 @@ function ProjectCard({ project, index }) {
           <img
             src={project.screenshot || `/project-screenshots/${project.slug}.webp`}
             alt={`${project.name} project screenshot`}
-            className="absolute inset-0 h-full w-full object-cover"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full scale-110 object-cover blur-xl opacity-45"
+            loading="lazy"
+            decoding="async"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = "/project-screenshots/placeholder.svg";
+            }}
+          />
+          <img
+            src={project.screenshot || `/project-screenshots/${project.slug}.webp`}
+            alt={`${project.name} project screenshot`}
+            className="absolute inset-0 h-full w-full object-contain"
             loading="lazy"
             decoding="async"
             onError={(event) => {

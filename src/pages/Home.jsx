@@ -56,8 +56,8 @@ export default function Home() {
                 {social.label}
               </a>
             ))}
-            <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="font-mono-tag text-sm font-semibold text-[var(--text-dim)] transition-colors hover:text-[var(--accent)]">{profile.phone}</a>
-            <a href="/resume.pdf" download className="font-mono-tag text-sm font-semibold text-[var(--accent)] hover:underline">resume ↗</a>
+            {/* <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="font-mono-tag text-sm font-semibold text-[var(--text-dim)] transition-colors hover:text-[var(--accent)]">{profile.phone}</a> */}
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="font-mono-tag text-sm font-semibold text-[var(--accent)] hover:underline">resume ↗</a>
           </div>
         </div>
       </section>

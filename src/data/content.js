@@ -105,6 +105,7 @@ export const projects = [
     name: "Sanchit",
     screenshot: "/project-screenshots/sanchit.png",
     repo: "https://github.com/garvit-arora/sanchit",
+    live: "https://sanchitapp.vercel.app/",
     stack: ["React", "Node.js", "Azure", "WebLLM", "Gemini API"],
     summary: "A campus network combining real-time community features with private, browser-side AI assistance.",
     description: "Sanchit is a campus networking platform designed around fast communication and useful student tools. Alongside profiles and real-time messaging, it explores two complementary AI paths: WebLLM for private in-browser inference and a Gemini-backed RAG workflow for structured resume feedback.",
